@@ -1,0 +1,57 @@
+<%= link_to "Back", films_path %>
+
+<h1> Add new film </h1>
+
+<% if @film.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@film.errors.count, "error") %> prohibited
+      this film from being saved:
+    </h2>
+
+    <ul>
+      <% @film.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for :film, url: films_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :release_date %><br>
+    <%= f.date_select :release_date, :start_year=>1900,:end_year=>2020 %>
+  </p>
+  <p>
+    <%= f.label :duration %><br>
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.label :short_description %><br>
+    <%= f.text_field :short_description %>
+  </p>
+  <p>
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre %>
+  </p>
+  <p>
+    <%= f.label :director %><br>
+    <%= f.text_field :director %>
+  </p>
+  <p>
+    <%= f.label :scenarist %><br>
+    <%= f.text_field :scenarist %>
+  </p>
+  <p>
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<%end %>

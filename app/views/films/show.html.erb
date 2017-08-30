@@ -1,0 +1,47 @@
+<%= link_to "Index", films_path %>
+<p>
+  <strong>Title:</strong>
+  <%= @film.title %>
+</p>
+<p>
+  <strong>Release_date:</strong>
+  <%= @film.release_date %>
+</p>
+<p>
+  <strong>Duration:</strong>
+  <%= @film.duration %>
+</p>
+<p>
+  <strong>Short_description:</strong>
+  <%= @film.short_description %>
+</p>
+<p>
+  <strong>Genre:</strong>
+  <%= @film.genre %>
+</p>
+<p>
+  <strong>Director:</strong>
+  <%= @film.director %>
+</p>
+<p>
+  <strong>Scenarist:</strong>
+  <%= @film.scenarist %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @film.country %>
+</p>
+
+<% if @previous_film %>
+  <%= link_to "Previous film", film_path(@previous_film) %>
+<% end %>
+|
+<% if @next_film %>
+  <%= link_to "Next film", film_path(@next_film) %>
+<% end %>
+
+<h2>Add review</h2>
+<%= render "reviews/form" %>
+
+<h2> Reviews</h2>
+<%= render @film.reviews.order(created_at: :desc) %>

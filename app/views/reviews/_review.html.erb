@@ -1,0 +1,18 @@
+<p>
+  <strong> Author: </strong>
+  <%= review.first_name %>
+  <%= review.surname %> 
+
+  <strong> Rating: </strong>
+  <%= review.rating %>
+</p>
+
+<p>
+  <strong> Short opinion: </strong>
+  <%= review.short_opinion %>
+</p>
+
+
+<%= link_to "Delete", film_review_path(@film, review),
+                      method: :delete,
+                      data: { confirm: "Are you sure?"}%>
